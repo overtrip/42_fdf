@@ -6,7 +6,7 @@
 /*   By: jealonso <jealonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/22 17:14:23 by jealonso          #+#    #+#             */
-/*   Updated: 2015/02/27 19:29:20 by jealonso         ###   ########.fr       */
+/*   Updated: 2015/03/04 17:29:00 by jealonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ int		save_map(t_map **begin, char *line, int cmp)
 {
 	t_map	*current;
 	int		x;
+	int		inc;
 
-	x = 0;
-	while (*line)
+	inc = 0;
+	x = -1;
+	while (inc < (int)ft_strlen(line) && (line[inc + 1]))
 	{
-		current = ft_create_pos(x, cmp, ft_atoibis(line));
+		current = ft_create_pos(++x, cmp, ft_atoibis(line + inc, &inc));
 		ft_push_back(begin, current);
-		x++;
 		line++;
 	}
 	return (0);
@@ -45,20 +46,18 @@ int		ft_open(char *argv)
 		free(line);
 		cmp++;
 	}
-	get_next_line(fd, &line);
+	ft_aff_window(begin);
 	close(fd);
 	return (1);
 }
 
 int		main(int argc, char **argv)
 {
-
 	if (ft_error(argc))
 		return (0);
 	else
 	{
 		ft_open(argv[1]);
-		ft_aff_window();
 	}
 	return (0);
 }

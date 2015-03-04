@@ -6,7 +6,7 @@
 /*   By: jealonso <jealonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 17:16:38 by jealonso          #+#    #+#             */
-/*   Updated: 2015/02/27 17:24:29 by jealonso         ###   ########.fr       */
+/*   Updated: 2015/03/04 17:35:55 by jealonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,23 @@ int		ft_sign(char c)
 	return (1);
 }
 
-int		ft_atoibis(char *line)
+int		ft_atoibis(char *line, int *x)
 {
-	int	x;
 	int	cmp;
 	int	sign;
 	int	nb;
 
-	x = -1;
 	cmp = -1;
 	nb = 0;
-	while (line[++cmp] && line[cmp] != '-' && line[cmp] != '+' &&
-			!(line[cmp] >= '0' && line[cmp] <= '9'))
-		x++;
-	sign = ft_sign(line[cmp]);
-	x++;
+	while ((line[++cmp] && line[cmp] != '-' && line[cmp] != '+'
+			&& !(line[cmp] >= '0' && line[cmp] <= '9')))
+		(*x)++;
+	if ((sign = ft_sign(line[cmp])) == -1)
+		(*x)++;
 	while (line[cmp] && (line[cmp] >= '0' && line[cmp] <= '9'))
 	{
 		nb = nb * 10 + (line[cmp++] - '0');
-		x++;
+		(*x)++;
 	}
-	ft_memset(line, ' ', x);
 	return (sign * nb);
 }
