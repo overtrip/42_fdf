@@ -6,7 +6,7 @@
 #    By: jealonso <jealonso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/22 17:06:10 by jealonso          #+#    #+#              #
-#    Updated: 2015/03/03 15:30:45 by jealonso         ###   ########.fr        #
+#    Updated: 2015/03/05 17:18:56 by jealonso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRCS = \
 		ft_error.c \
 		get_next_line.c \
 		ft_get_map.c \
-		ft_aff.c
+		ft_aff_win.c \
+		ft_aff_point.c
 
 OBJS = $(patsubst %.c, $(OBJSPATH)/%.o, $(SRCS))
 

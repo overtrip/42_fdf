@@ -6,7 +6,7 @@
 /*   By: jealonso <jealonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/22 17:59:27 by jealonso          #+#    #+#             */
-/*   Updated: 2015/03/04 17:32:58 by jealonso         ###   ########.fr       */
+/*   Updated: 2015/03/05 19:04:30 by jealonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <mlx.h>
 # include "libft.h"
 # define BUFF_SIZE 8
@@ -45,5 +46,9 @@ int					ft_sign(char c);
 void				ft_aff_window(t_map *point);
 void				ft_push_back(t_map **begin, t_map *new);
 t_map				*ft_create_pos(int x, int y, int z);
+void				ft_aff_poit(t_map *point, t_env *e);
+static void			ft_putpxl(t_env e, int x, int y, int z);
+static void			ft_aff_line1(t_env *e, t_map point1, t_map point2);
+static void			ft_aff_line2(t_env *e, t_map point1, t_map point2);
 
 #endif

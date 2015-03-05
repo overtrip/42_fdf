@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_aff.c                                           :+:      :+:    :+:   */
+/*   ft_aff_point.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jealonso <jealonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/27 18:49:15 by jealonso          #+#    #+#             */
-/*   Updated: 2015/03/04 17:35:23 by jealonso         ###   ########.fr       */
+/*   Created: 2015/03/05 16:01:30 by jealonso          #+#    #+#             */
+/*   Updated: 2015/03/05 19:02:21 by jealonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_aff_point(t_map *point, void *mlx, void *win)
+void	ft_aff_point(t_map *point, t_env e)
 {
-	mlx_pixel_put(mlx, win, point->x * 15 + 15,  point->y * 15 + 15, 0xFF0000);
+	if ((ABS(point->x - point->next->x) > ABS(point->y - point->next->y)))
+	{
+		if (point->x < point->next->x)
+			ft_aff_line1(e, point, point->next);
+		else
+			ft_aff_lin1(e, point->next, point);
+	}
+	else
+	{
+		if (point->y < point->next->y)
+			ft_aff_line2(e, *point, *point->next);
+		else
+			ft_aff_line2(e, *point->next, *point);
+	}
+//	mlx_pixel_put(e.mlx, e.win, point->x * 15 + 15, point->y * 15 + 15, 0xFF0000);
 }
 
 int		key_hook(int key)
@@ -40,10 +54,10 @@ void	ft_aff_window(t_map *point)
 	while (point->next)
 	{
 		if (!point->z)
-			ft_aff_point(point, e.mlx, e.win);
+			ft_aff_point(point, e);
 		point = point->next;
 	}
-			ft_aff_point(point, e.mlx, e.win);
+			ft_aff_point(point, e);
 	mlx_loop(e.mlx);
 	return ;
 }
