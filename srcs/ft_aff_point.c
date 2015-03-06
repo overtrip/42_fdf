@@ -6,7 +6,7 @@
 /*   By: jealonso <jealonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/05 16:01:30 by jealonso          #+#    #+#             */
-/*   Updated: 2015/03/05 19:02:21 by jealonso         ###   ########.fr       */
+/*   Updated: 2015/03/06 19:51:11 by jealonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_aff_point(t_map *point, t_env e)
 {
-	if ((ABS(point->x - point->next->x) > ABS(point->y - point->next->y)))
+/*	if ((ABS(point->x - point->next->x) > ABS(point->y - point->next->y)))
 	{
 		if (point->x < point->next->x)
 			ft_aff_line1(e, point, point->next);
@@ -27,8 +27,8 @@ void	ft_aff_point(t_map *point, t_env e)
 			ft_aff_line2(e, *point, *point->next);
 		else
 			ft_aff_line2(e, *point->next, *point);
-	}
-//	mlx_pixel_put(e.mlx, e.win, point->x * 15 + 15, point->y * 15 + 15, 0xFF0000);
+	}*/
+	mlx_pixel_put(e.mlx, e.win, point->x * 15 + 15, point->y * 15 + 15, 0xFFFFFF);
 }
 
 int		key_hook(int key)

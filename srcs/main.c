@@ -6,7 +6,7 @@
 /*   By: jealonso <jealonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/22 17:14:23 by jealonso          #+#    #+#             */
-/*   Updated: 2015/03/05 17:01:16 by jealonso         ###   ########.fr       */
+/*   Updated: 2015/03/06 19:57:04 by jealonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,9 @@ int		ft_open(char *argv)
 
 int		main(int argc, char **argv)
 {
-	if (ft_error(argc))
+	if (ft_error(argc, argv[1]))
 		return (0);
 	else
-	{
 		ft_open(argv[1]);
-	}
 	return (0);
 }

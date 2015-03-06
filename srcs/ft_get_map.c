@@ -6,7 +6,7 @@
 /*   By: jealonso <jealonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 17:16:38 by jealonso          #+#    #+#             */
-/*   Updated: 2015/03/04 17:35:55 by jealonso         ###   ########.fr       */
+/*   Updated: 2015/03/06 19:51:16 by jealonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_map	*ft_create_pos(int x, int y, int z)
 {
 	t_map	*new;
 
+	new = NULL;
 	if ((new = (t_map *)malloc(sizeof(t_map))))
 	{
 		new->x = x;

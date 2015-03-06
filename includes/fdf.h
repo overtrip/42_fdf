@@ -6,7 +6,7 @@
 /*   By: jealonso <jealonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/22 17:59:27 by jealonso          #+#    #+#             */
-/*   Updated: 2015/03/05 19:04:30 by jealonso         ###   ########.fr       */
+/*   Updated: 2015/03/06 19:52:13 by jealonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct		s_env
 	void			*win;
 }					t_env;
 
-int					ft_error(int argc);
+int					ft_error(int argc, char *argv);
 int					ft_open(char *argv);
 int					get_next_line(int const fd, char **line);
 int					save_map(t_map **begin, char *line, int cmp);
@@ -47,8 +47,8 @@ void				ft_aff_window(t_map *point);
 void				ft_push_back(t_map **begin, t_map *new);
 t_map				*ft_create_pos(int x, int y, int z);
 void				ft_aff_poit(t_map *point, t_env *e);
-static void			ft_putpxl(t_env e, int x, int y, int z);
+/*static void			ft_putpxl(t_env e, int x, int y, int z);
 static void			ft_aff_line1(t_env *e, t_map point1, t_map point2);
 static void			ft_aff_line2(t_env *e, t_map point1, t_map point2);
-
+*/
 #endif
